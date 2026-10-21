@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7f8">
+  <meta name="description" content="عيادة النساء والتوليد - معلومات عن الخدمات وطرق التواصل وحجز المواعيد.">
+  <title>عيادة النساء والتوليد | Women's Clinic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #c96e87;
+      --pink-dark: #a94f69;
+      --pink-light: #fff0f3;
+      --cream: #fffaf8;
+      --sage: #e8eee6;
+      --text: #40333a;
+      --muted: #786d73;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 250, 248, .95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #f1e4e7;
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--pink-dark);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: .92rem;
+    }
+
+    .nav-links a:hover { color: var(--pink-dark); }
+
+    .language {
+      border: 1px solid #e8c8d1;
+      border-radius: 30px;
+      background: white;
+      padding: 7px 14px;
+      color: var(--pink-dark);
+    }
+
+    .hero {
+      padding: 85px 0;
+      background:
+        radial-gradient(ellipse at 85% 20%, #f9dfe6 0, transparent 38%),
+        linear-gradient(135deg, #fffaf8, #fff0f3);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--pink-dark);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    h1 span { color: var(--pink); }
+
+    .hero p {
+      max-width: 560px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      padding: 12px 23px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #dfb5c1;
+      color: var(--pink-dark);
+      background: white;
+    }
+
+    .hero-art {
+      min-height: 340px;
+      border-radius: 48% 48% 25px 25px;
+      background: linear-gradient(155deg, #f5d4df, #e9e9dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-art::before,
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.65);
+    }
+
+    .hero-art::before {
+      width: 250px;
+      height: 250px;
+    }
+
+    .hero-art::after {
+      width: 310px;
+      height: 310px;
+    }
+
+    .flower {
+      position: relative;
+      z-index: 1;
+      font-size: 6rem;
+    }
+
+    section { padding: 78px 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-art {
+      background: var(--sage);
+      min-height: 280px;
+      border-radius: 25px;
+      display: grid;
+      place-items: center;
+      font-size: 5rem;
+    }
+
+    .about-text h3 {
+      font-size: 1.65rem;
+      margin-bottom: 14px;
+    }
+
+    .about-text p { color: var(--muted); }
+
+    .services { background: #fff4f5; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 27px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #f4e3e7;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px #c96e8715;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      background: var(--pink-light);
+      border-radius: 17px;
+      font-size: 1.7rem;
+      margin-bottom: 17px;
+    }
+
+    .card h3 { margin-bottom: 9px; }
+
+    .card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .contact-box {
+      background: var(--sage);
+      border-radius: 28px;
+      padding: 45px 25px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .note {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .88rem;
+      border-top: 1px solid #f0e4e7;
+    }
+
+    @media (max-width: 760px) {
+      nav { flex-wrap: wrap; padding: 14px 0; }
+      .nav-links { order: 3; width: 100%; justify-content: center; gap: 14px; flex-wrap: wrap; }
+      .hero { padding: 55px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-art { min-height: 240px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home" data-ar="🌸 عيادة النساء والتوليد"
+         data-en="🌸 Women's Clinic">🌸 عيادة النساء والتوليد</a>
+
+      <div class="nav-links">
+        <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+        <a href="#about" data-ar="عن العيادة" data-en="About">عن العيادة</a>
+        <a href="#services" data-ar="الخدمات" data-en="Services">الخدمات</a>
+        <a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+      </div>
+
+      <button class="language" id="languageBtn" type="button"
+        aria-label="Switch language">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" data-ar="رعاية طبية باهتمام وخصوصية"
+            data-en="Compassionate and confidential care">
+            رعاية طبية باهتمام وخصوصية
+          </div>
+
+          <h1 data-ar="صحتكِ وراحتكِ <span>أولوية</span>"
+              data-en="Your health and comfort <span>come first</span>">
+            صحتكِ وراحتكِ <span>أولوية</span>
+          </h1>
+
+          <p data-ar="مرحبًا بكِ في عيادتنا. تعرّفي على خدمات النساء والتوليد، وتواصلي معنا للاستفسار عن المواعيد."
+             data-en="Welcome to our clinic. Explore our women's health and obstetrics services and contact us to ask about appointments.">
+            مرحبًا بكِ في عيادتنا. تعرّفي على خدمات النساء والتوليد، وتواصلي معنا للاستفسار عن المواعيد.
+          </p>
+
+          <div class="actions">
+            <a href="#contact" class="btn btn-primary"
+              data-ar="تواصلي معنا" data-en="Contact Us">تواصلي معنا</a>
+            <a href="#services" class="btn btn-outline"
+              data-ar="اكتشفي الخدمات" data-en="Explore Services">اكتشفي الخدمات</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Floral illustration">
+          <div class="flower">🌷</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-art" aria-hidden="true">🌸</div>
+        <div class="about-text">
+          <div class="eyebrow" data-ar="عن العيادة" data-en="About the Clinic">عن العيادة</div>
+          <h3 data-ar="رعاية تبدأ بالاستماع إليكِ"
+              data-en="Care that starts with listening">
+            رعاية تبدأ بالاستماع إليكِ
+          </h3>
+          <p data-ar="نحرص على توفير تجربة زيارة مريحة، مع احترام الخصوصية وتقديم المعلومات الطبية المناسبة لكل حالة. أضيفي هنا نبذة الدكتورة ومؤهلاتها بعد مراجعتها."
+             data-en="We aim to provide a comfortable visit, respect your privacy, and share appropriate medical information. Add the doctor's verified biography and qualifications here.">
+            نحرص على توفير تجربة زيارة مريحة، مع احترام الخصوصية وتقديم المعلومات الطبية المناسبة لكل حالة. أضيفي هنا نبذة الدكتورة ومؤهلاتها بعد مراجعتها.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2 data-ar="خدمات العيادة" data-en="Our Services">خدمات العيادة</h2>
+          <p data-ar="تعرّفي على الخدمات المتاحة بالعيادة"
+             data-en="Explore the services offered by the clinic">
+            تعرّفي على الخدمات المتاحة بالعيادة
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">🌷</div>
+            <h3 data-ar="صحة المرأة" data-en="Women's Health">صحة المرأة</h3>
+            <p data-ar="استشارات ومتابعة صحة المرأة وفقًا لاحتياجات كل حالة."
+               data-en="Consultations and women's health care tailored to each patient's needs.">
+              استشارات ومتابعة صحة المرأة وفقًا لاحتياجات كل حالة.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🤰</div>
+            <h3 data-ar="متابعة الحمل" data-en="Pregnancy Care">متابعة الحمل</h3>
+            <p data-ar="متابعة الحمل وفق خطة الرعاية التي يحددها الطبيب."
+               data-en="Pregnancy follow-up based on an individual care plan set by the clinician.">
+              متابعة الحمل وفق خطة الرعاية التي يحددها الطبيب.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🩺</div>
+            <h3 data-ar="استشارات النساء والتوليد"
+               data-en="Obstetrics & Gynecology">
+              استشارات النساء والتوليد
+            </h3>
+            <p data-ar="حجز استشارة لمناقشة الأسئلة الصحية مع الطبيبة."
+               data-en="Book a consultation to discuss your health questions with the doctor.">
+              حجز استشارة لمناقشة الأسئلة الصحية مع الطبيبة.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 data-ar="نحن هنا لمساعدتكِ"
+              data-en="We're Here to Help">
+            نحن هنا لمساعدتكِ
+          </h2>
+          <p data-ar="تواصلي مع العيادة للاستفسار عن المواعيد وطريقة الحجز."
+             data-en="Contact the clinic to ask about appointments and booking.">
+            تواصلي مع العيادة للاستفسار عن المواعيد وطريقة الحجز.
+          </p>
+          <button class="btn btn-primary" id="bookingBtn" type="button"
+            data-ar="حجز موعد عبر واتساب" data-en="Book via WhatsApp">
+            حجز موعد عبر واتساب
+          </button>
+          <p class="note" data-ar="زر الحجز تجريبي حاليًا. سيتم تفعيله بعد إضافة رقم العيادة."
+             data-en="Booking is in demo mode. It will be activated after adding the clinic's WhatsApp number.">
+            زر الحجز تجريبي حاليًا. سيتم تفعيله بعد إضافة رقم العيادة.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span data-ar="© 2026 عيادة النساء والتوليد. جميع الحقوق محفوظة."
+        data-en="© 2026 Women's Clinic. All rights reserved.">
+        © 2026 عيادة النساء والتوليد. جميع الحقوق محفوظة.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    let currentLanguage = "ar";
+
+    const languageBtn = document.getElementById("languageBtn");
+
+    languageBtn.addEventListener("click", () => {
+      currentLanguage = currentLanguage === "ar" ? "en" : "ar";
+
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+      languageBtn.textContent = currentLanguage === "ar" ? "English" : "العربية";
+
+      document.querySelectorAll("[data-ar][data-en]").forEach(element => {
+        const text = element.dataset[currentLanguage];
+        if (element.tagName === "H1") {
+          element.innerHTML = text;
+        } else {
+          element.textContent = text;
+        }
+      });
+    });
+
+    document.getElementById("bookingBtn").addEventListener("click", () => {
+      alert(
+        currentLanguage === "ar"
+          ? "الحجز غير مفعّل بعد. أضيفي رقم واتساب العيادة لتفعيل هذه الخاصية."
+          : "Booking is not active yet. Add the clinic's WhatsApp number to enable this feature."
+      );
+    });
+  </script>
+</body>
+</html>
